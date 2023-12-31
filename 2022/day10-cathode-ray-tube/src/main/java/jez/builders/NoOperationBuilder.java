@@ -1,11 +1,12 @@
 package jez.builders;
 
-import jez.builders.BuilderInterfaces.OperationBuilderStepCurrentCycle;
-import jez.builders.BuilderInterfaces.OperationBuilderStepCurrentX;
+import jez.builders.BuilderInterfaces.NoOperationOperationBuilderStepCurrentCycle;
+import jez.builders.BuilderInterfaces.NoOperationOperationBuilderStepCurrentX;
 import jez.entities.NoOperation;
 
 public class NoOperationBuilder extends OperationBuilder
-		implements OperationBuilderStepCurrentCycle, OperationBuilderStepCurrentX
+		implements NoOperationOperationBuilderStepCurrentCycle,
+		NoOperationOperationBuilderStepCurrentX
 {
 	private int currentCycle;
 	private int currentX;
@@ -18,7 +19,7 @@ public class NoOperationBuilder extends OperationBuilder
 	}
 
 	@Override
-	public OperationBuilderStepCurrentX withCurrentCycle(int currentCycle)
+	public NoOperationOperationBuilderStepCurrentX withCurrentCycle(int currentCycle)
 	{
 		this.currentCycle = currentCycle;
 		return this;

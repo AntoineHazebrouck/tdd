@@ -1,14 +1,15 @@
 package jez.entities;
 
 import jez.builders.AddXOperationBuilder;
-import jez.builders.BuilderInterfaces.OperationBuilderStepCurrentCycle;
+import jez.builders.BuilderInterfaces.AddXOperationBuilderStepCurrentCycle;
 import jez.builders.BuilderInterfaces.AddXOperationStepV;
+import jez.builders.BuilderInterfaces.NoOperationOperationBuilderStepCurrentCycle;
 import jez.builders.NoOperationBuilder;
 
 public abstract class Operation
 {
-	private final int currentCycle;
-	private final int currentX;
+	protected final int currentCycle;
+	protected final int currentX;
 
 	protected Operation(int currentCycle, int currentX)
 	{
@@ -16,7 +17,7 @@ public abstract class Operation
 		this.currentX = currentX;
 	}
 
-	public static NoOperationBuilder noOperation()
+	public static NoOperationOperationBuilderStepCurrentCycle noOperation()
 	{
 		return new NoOperationBuilder();
 	}
@@ -36,11 +37,27 @@ public abstract class Operation
 		return currentX;
 	}
 
-	public Operation next(OperationBuilderStepCurrentCycle addXOperationBuilderStepCurrentCycle)
+	public Operation next(AddXOperationBuilderStepCurrentCycle addXOperationBuilderStepCurrentCycle)
 	{
 		return addXOperationBuilderStepCurrentCycle
 				.withCurrentCycle(currentCycle + AddXOperation.nbCycles)
 				.withCurrentX(currentX)
 				.build();
 	}
+
+	public Operation next(
+			NoOperationOperationBuilderStepCurrentCycle noOperationOperationBuilderStepCurrentCycle)
+	{
+		return noOperationOperationBuilderStepCurrentCycle
+				.withCurrentCycle(currentCycle + NoOperation.nbCycles)
+				.withCurrentX(currentX)
+				.build();
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Operation [currentCycle=" + currentCycle + ", currentX=" + currentX + "]";
+	}
+
 }

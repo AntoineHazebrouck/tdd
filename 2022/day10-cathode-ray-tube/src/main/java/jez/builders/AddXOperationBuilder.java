@@ -1,13 +1,13 @@
 package jez.builders;
 
-import jez.builders.BuilderInterfaces.OperationBuilderStepCurrentCycle;
-import jez.builders.BuilderInterfaces.OperationBuilderStepCurrentX;
+import jez.builders.BuilderInterfaces.AddXOperationBuilderStepCurrentCycle;
+import jez.builders.BuilderInterfaces.AddXOperationBuilderStepCurrentX;
 import jez.builders.BuilderInterfaces.AddXOperationStepV;
 import jez.entities.AddXOperation;
 import jez.entities.Operation;
 
 public class AddXOperationBuilder extends OperationBuilder implements AddXOperationStepV,
-		OperationBuilderStepCurrentCycle, OperationBuilderStepCurrentX
+		AddXOperationBuilderStepCurrentCycle, AddXOperationBuilderStepCurrentX
 {
 	private int currentCycle;
 	private int currentX;
@@ -21,14 +21,14 @@ public class AddXOperationBuilder extends OperationBuilder implements AddXOperat
 	}
 
 	@Override
-	public OperationBuilderStepCurrentX withCurrentCycle(int currentCycle)
+	public AddXOperationBuilderStepCurrentX withCurrentCycle(int currentCycle)
 	{
 		this.currentCycle = currentCycle;
 		return this;
 	}
 
 	@Override
-	public OperationBuilderStepCurrentCycle withV(int v)
+	public AddXOperationBuilderStepCurrentCycle withV(int v)
 	{
 		this.v = v;
 		return this;

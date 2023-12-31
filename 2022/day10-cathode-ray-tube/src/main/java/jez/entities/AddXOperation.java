@@ -17,4 +17,12 @@ public class AddXOperation extends Operation
 	{
 		return v;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "AddXOperation [currentCycle=" + super.currentCycle + ", currentX=" + super.currentX
+				+ ", v=" + v
+				+ "]";
+	}
 }

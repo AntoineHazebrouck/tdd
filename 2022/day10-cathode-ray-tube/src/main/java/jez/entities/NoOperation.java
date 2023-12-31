@@ -8,4 +8,11 @@ public class NoOperation extends Operation
 	{
 		super(currentCycle, currentX);
 	}
+
+	@Override
+	public String toString()
+	{
+		return "NoOperation [currentCycle=" + super.currentCycle + ", currentX=" + super.currentX
+				+ "]";
+	}
 }
