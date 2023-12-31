@@ -7,19 +7,19 @@ public final class BuilderInterfaces
 
 	public interface AddXOperationStepV
 	{
-		AddXOperationBuilderStepCurrentCycle withV(int v);
+		OperationBuilderStepCurrentCycle withV(int v);
 	}
 
 
-	public interface AddXOperationBuilderStepCurrentCycle
+	public interface OperationBuilderStepCurrentCycle
 	{
-		AddXOperationBuilderStepCurrentX withCurrentCycle(int currentCycle);
+		OperationBuilderStepCurrentX withCurrentCycle(int currentCycle);
 	}
 
 
-	public interface AddXOperationBuilderStepCurrentX
+	public interface OperationBuilderStepCurrentX
 	{
-		AddXOperationBuilder withCurrentX(int currentX);
+		OperationBuilder withCurrentX(int currentX);
 	}
 
 }

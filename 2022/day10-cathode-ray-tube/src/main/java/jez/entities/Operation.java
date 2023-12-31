@@ -1,9 +1,9 @@
 package jez.entities;
 
 import jez.builders.AddXOperationBuilder;
-import jez.builders.BuilderInterfaces.AddXOperationBuilderStepCurrentCycle;
+import jez.builders.BuilderInterfaces.OperationBuilderStepCurrentCycle;
 import jez.builders.BuilderInterfaces.AddXOperationStepV;
-import jez.entities.NoOperation.NoOperationBuilder;
+import jez.builders.NoOperationBuilder;
 
 public abstract class Operation
 {
@@ -36,7 +36,7 @@ public abstract class Operation
 		return currentX;
 	}
 
-	public Operation next(AddXOperationBuilderStepCurrentCycle addXOperationBuilderStepCurrentCycle)
+	public Operation next(OperationBuilderStepCurrentCycle addXOperationBuilderStepCurrentCycle)
 	{
 		return addXOperationBuilderStepCurrentCycle
 				.withCurrentCycle(currentCycle + AddXOperation.nbCycles)
