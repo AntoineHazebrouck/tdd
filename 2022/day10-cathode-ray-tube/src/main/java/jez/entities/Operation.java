@@ -1,9 +1,9 @@
-package jez;
+package jez.entities;
 
-import jez.AddXOperation.AddXOperationBuilder;
-import jez.AddXOperation.AddXOperationBuilderStepCurrentCycle;
-import jez.AddXOperation.AddXOperationStepV;
-import jez.NoOperation.NoOperationBuilder;
+import jez.builders.AddXOperationBuilder;
+import jez.builders.BuilderInterfaces.AddXOperationBuilderStepCurrentCycle;
+import jez.builders.BuilderInterfaces.AddXOperationStepV;
+import jez.entities.NoOperation.NoOperationBuilder;
 
 public abstract class Operation
 {
@@ -43,13 +43,4 @@ public abstract class Operation
 				.withCurrentX(currentX)
 				.build();
 	}
-
-	// public Operation next(AddXOperationBuilder addX)
-	// {
-	// return addX
-	// .withCurrentCycle(currentCycle + AddXOperation.nbCycles)
-	// .withCurrentX(currentX)
-	// // withV is already set in the test
-	// .build();
-	// }
 }

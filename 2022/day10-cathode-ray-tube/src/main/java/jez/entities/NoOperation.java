@@ -1,4 +1,4 @@
-package jez;
+package jez.entities;
 
 public class NoOperation extends Operation
 {
