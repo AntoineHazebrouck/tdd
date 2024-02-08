@@ -54,4 +54,17 @@ class ApplicationTest {
 		assertThat(rankList3.getTeam(4).getRank()).isEqualTo(3);
 		assertThat(rankList3.getTeam(5).getRank()).isEqualTo(5);
 	}
+
+	@Test
+	void build_a_new_rank_list_from_a_game_step3() {
+		RankList rankList = new RankList(5);
+		
+		RankList rankList2 = rankList.next(4, 1);
+		RankList rankList3 = rankList2.next(5, 3);
+		assertThat(rankList3.getTeam(1).getRank()).isEqualTo(3);
+		assertThat(rankList3.getTeam(2).getRank()).isEqualTo(1);
+		assertThat(rankList3.getTeam(3).getRank()).isEqualTo(5);
+		assertThat(rankList3.getTeam(4).getRank()).isEqualTo(2);
+		assertThat(rankList3.getTeam(5).getRank()).isEqualTo(4);
+	}
 }
