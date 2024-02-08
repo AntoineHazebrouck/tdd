@@ -94,4 +94,12 @@ public class RankList
 				return new RankList(loserTakesWinnersRank);
 		}
 	}
+
+	@Override
+	public String toString() {
+		return this.teams.stream()
+			.sorted((leftTeam, rightTeam) -> Integer.compare(leftTeam.getRank(), rightTeam.getRank()))
+			.toList()
+			.toString();
+	}
 }
