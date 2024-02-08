@@ -40,22 +40,22 @@ public class RankList
 				.get();
 	}
 
-	public RankList createRoomForLoser(int winningTeam, int losingTeam) {
-		int winnersRank = getTeam(winningTeam).getRank();
-		int losersRank = getTeam(losingTeam).getRank();
-		List<Team> winnerAndAboveWinnerAndBelowLoser = teams.stream()
-				// .filter(team -> team.getRank() <= winnersRank && team.getRank() > losersRank)
-				.map(team -> {
+	// public RankList createRoomForLoser(int winningTeam, int losingTeam) {
+	// 	int winnersRank = getTeam(winningTeam).getRank();
+	// 	int losersRank = getTeam(losingTeam).getRank();
+	// 	List<Team> winnerAndAboveWinnerAndBelowLoser = teams.stream()
+	// 			// .filter(team -> team.getRank() <= winnersRank && team.getRank() > losersRank)
+	// 			.map(team -> {
 					
-					if (team.getRank() <= winnersRank && team.getRank() > losersRank) {
-						return new Team(team.getRank() + 1, team.getTeam());
-					} else {
-						return team;
-					}
-				})
-				.toList();
-		return new RankList(winnerAndAboveWinnerAndBelowLoser);
-	}
+	// 				if (team.getRank() <= winnersRank && team.getRank() > losersRank) {
+	// 					return new Team(team.getRank() + 1, team.getTeam());
+	// 				} else {
+	// 					return team;
+	// 				}
+	// 			})
+	// 			.toList();
+	// 	return new RankList(winnerAndAboveWinnerAndBelowLoser);
+	// }
 
 	public RankList next(int winningTeam, int losingTeam)
 	{
@@ -92,11 +92,6 @@ public class RankList
 				.toList();
 
 				return new RankList(loserTakesWinnersRank);
-			
-			// le loser prend la place du winner
-			// Team newLoser = new Team(winnersRank, losingTeam);
-
-			
 		}
 	}
 }
