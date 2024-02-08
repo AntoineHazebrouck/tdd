@@ -11,10 +11,17 @@ public class Application
 
 	public static void main(String[] args) throws IOException
 	{
-		List<String> lines = Files.readAllLines(Path.of("./src/main/resources/input.txt"));
+		List<String> lines = Files.readAllLines(Path.of("./src/main/resources/input-test.txt"));
 
 		// first operation
-		Operation previousOperation = Operation.noOperation()
+		// Operation previousOperation = Operation.noOperation()
+		// .withCurrentCycle(1)
+		// .withCurrentX(1)
+		// .build();
+
+		int sum = 0;
+		Operation previousOperation = Operation.addX()
+				.withV(15)
 				.withCurrentCycle(1)
 				.withCurrentX(1)
 				.build();
@@ -36,10 +43,20 @@ public class Application
 																			.split(" ")[1])));
 			}
 
-			System.out.println(previousOperation);
+			System.out.println("previous : " + previousOperation);
+			System.out.println("current : " + currentOperation);
+			if (
+				List.of(20, 60, 100, 140, 180, 220)
+						.contains(currentOperation.getCurrentCycle())
+			)
+			{
+				sum += currentOperation.getCurrentCycle() * previousOperation.getCurrentX();
+				System.out.println("cycle : " + currentOperation.getCurrentCycle() + ", x : "
+						+ previousOperation.getCurrentX());
+			}
 
 			previousOperation = currentOperation;
 		}
-		// lines.forEach(line -> System.out.println(line));
+		System.out.println(sum);
 	}
 }
